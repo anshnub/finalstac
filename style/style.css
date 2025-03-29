@@ -208,6 +208,29 @@ body {
   
 }
 
+/* #change */
+.image-container:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.image-container .overlay {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.image-container.hover .overlay {
+  opacity: 1; /* Show overlay when 'hover' class is added */
+}
+
+.image-container .view-project-button {
+  display: none; /* Hide button by default */
+}
+
+.image-container.hover .view-project-button {
+  display: block; /* Show button when 'hover' class is added */
+}
+/* till here */
+
 .image-container {
   position: relative;
   
@@ -259,10 +282,6 @@ body {
 
 .overlay a.btn {
   margin-top: auto !important; /* Push the button to the bottom */
-}
-
-.image-container:hover .overlay {
-  opacity: 1; /* Show overlay on hover */
 }
 
 
