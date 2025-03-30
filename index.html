@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style/mobile.css">
     <!-- <link rel="stylesheet" href="style"> -->
 
-    <script src="hoverEffect.js"></script>
+    
 
     <title>STAC</title>
 </head>
@@ -225,7 +225,30 @@
         });
       </script> -->
       
-
+      <script >
+      document.addEventListener("DOMContentLoaded", function () {
+        const projects = document.querySelectorAll(".overlay");
+    
+        projects.forEach((project) => {
+            project.addEventListener("click", function () {
+                // Remove active class from all projects
+                projects.forEach((p) => p.classList.remove("active"));
+                
+                // Add active class to the clicked project
+                this.classList.add("active");
+            });
+    
+            // Optional: Hide on second tap (toggle effect)
+            project.addEventListener("touchend", function (e) {
+                setTimeout(() => {
+                    if (this.classList.contains("active")) {
+                        this.classList.remove("active");
+                    }
+                }, 1000); // Hide after 3 seconds
+            });
+        });
+    });
+    </script>
     <script>
         const backgrounds = [
             'photos/blur1.jpg',

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const projects = document.querySelectorAll(".featured-project");
+    const projects = document.querySelectorAll(".image-container");
 
     projects.forEach((project) => {
-        project.addEventListener("click", function () {
+        project.addEventListener("touchstart", function () {
             // Remove active class from all projects
             projects.forEach((p) => p.classList.remove("active"));
             
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (this.classList.contains("active")) {
                     this.classList.remove("active");
                 }
-            }, 3000); // Hide after 3 seconds
+            }, 1000); // Hide after 3 seconds
         });
     });
 });
