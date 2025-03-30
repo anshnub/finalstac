@@ -1,34 +1,22 @@
-// Select all images or elements that need hover-like functionality
-const images = document.querySelectorAll('.image-container');
+document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll(".featured-project");
 
-images.forEach((image) => {
-  let isHovered = false;
+    projects.forEach((project) => {
+        project.addEventListener("click", function () {
+            // Remove active class from all projects
+            projects.forEach((p) => p.classList.remove("active"));
+            
+            // Add active class to the clicked project
+            this.classList.add("active");
+        });
 
-  // Add touch event listener
-  image.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // Prevent default touch behavior like scrolling
-
-    if (!isHovered) {
-      // Simulate hover effect on first touch
-      image.classList.add('hover');
-      isHovered = true;
-    } else {
-      // Trigger primary action on second touch
-      image.classList.remove('hover');
-      isHovered = false;
-
-      // Perform primary action (e.g., navigate to a link or open a project)
-      const button = image.querySelector('.view-project-button');
-      if (button) {
-        button.click(); // Simulate button click
-      }
-    }
-  });
-
-  // Optional: Reset hover state on touchend or touchcancel
-  image.addEventListener('touchend', () => {
-    setTimeout(() => {
-      isHovered = false;
-    }, 300); // Reset after a short delay to prevent accidental double taps
-  });
+        // Optional: Hide on second tap (toggle effect)
+        project.addEventListener("touchend", function (e) {
+            setTimeout(() => {
+                if (this.classList.contains("active")) {
+                    this.classList.remove("active");
+                }
+            }, 3000); // Hide after 3 seconds
+        });
+    });
 });
